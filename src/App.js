@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+import { useDispatch, useSelector, useStore } from "react-redux";
+import {
+  addTodo,
+  deleteTodo,
+  deleteAllTodos,
+} from "./redux/actions/todoActions";
+import { useRef } from "react";
 
 function App() {
+  const todolist = useSelector((state) => state.todoReducer);
+  const dispatch = useDispatch();
+  const inputRef = useRef();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Todo list</h1>
+      <input type="text" ref={inputRef}></input>
+      <button
+        autoFocus
+        onClick={() => {
+          dispatch(addTodo(inputRef.current.value));
+          inputRef.current.value = "";
+          inputRef.current.focus();
+        }}
+      >
+        Add todo
+      </button>
+      <button onClick={() => dispatch(deleteAllTodos())}>
+        Delete all todos
+      </button>
+      {todolist.map((t, i) => (
+        <div key={i}>
+          {t} <button onClick={() => dispatch(deleteTodo(i))}>Delete</button>
+        </div>
+      ))}
     </div>
   );
 }
