@@ -6,6 +6,7 @@ import {
   addTodo,
   deleteTodo,
   deleteAllTodos,
+  toggleTodo,
 } from "./redux/actions/todoActions";
 import { useRef } from "react";
 
@@ -16,25 +17,44 @@ function App() {
   return (
     <div className="App">
       <h1>Todo list</h1>
-      <input type="text" ref={inputRef}></input>
-      <button
-        autoFocus
-        onClick={() => {
-          dispatch(addTodo(inputRef.current.value));
-          inputRef.current.value = "";
-          inputRef.current.focus();
-        }}
-      >
-        Add todo
-      </button>
-      <button onClick={() => dispatch(deleteAllTodos())}>
-        Delete all todos
-      </button>
-      {todolist.map((t, i) => (
-        <div key={i}>
-          {t} <button onClick={() => dispatch(deleteTodo(i))}>Delete</button>
-        </div>
-      ))}
+      <div className="centered">
+        <input autoFocus type="text" ref={inputRef}></input>
+        <button
+          onClick={() => {
+            if (inputRef.current.value !== "") {
+              dispatch(addTodo(inputRef.current.value));
+              inputRef.current.value = "";
+              inputRef.current.focus();
+            }
+          }}
+        >
+          Add todo
+        </button>
+        <button onClick={() => dispatch(deleteAllTodos())}>Delete all</button>
+      </div>
+
+      <ul className="task-list">
+        {todolist.map((t, i) => (
+          <li className="task-li" key={i}>
+            <label className={t.done ? "done-task" : "todo-task"}>
+              {t.text}{" "}
+              <input
+                type="checkbox"
+                value={t.done}
+                onChange={() => dispatch(toggleTodo(i))}
+              ></input>
+            </label>
+
+            <button
+              className="delete-task-btn"
+              value="delete"
+              onClick={() => dispatch(deleteTodo(i))}
+            >
+              DELETE ✕
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

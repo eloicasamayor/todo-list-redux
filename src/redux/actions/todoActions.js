@@ -10,6 +10,12 @@ export function deleteTodo(index) {
     payload: index,
   };
 }
+export function toggleTodo(index) {
+  return {
+    type: "TOGGLE_TODO",
+    payload: index,
+  };
+}
 export function deleteAllTodos(index) {
   return {
     type: "DELETE_ALL_TODOS",
