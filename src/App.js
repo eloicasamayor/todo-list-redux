@@ -18,7 +18,12 @@ function App() {
     <div className="App">
       <h1>Todo list</h1>
       <div className="centered">
-        <input autoFocus type="text" ref={inputRef}></input>
+        <input
+          autoFocus
+          type="text"
+          ref={inputRef}
+          placeHolder="My new task"
+        ></input>
         <button
           onClick={() => {
             if (inputRef.current.value !== "") {

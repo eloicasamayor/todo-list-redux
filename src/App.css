@@ -1,10 +1,20 @@
 h1 {
   text-align: center;
 }
+body {
+  background-color: #e1e1e1;
+}
+button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  border: 0;
+  background-color: darkcyan;
+  margin: 0 1px;
+}
 .centered {
   margin: auto;
   width: 50%;
-  height: 30px;
+  height: 35px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -13,23 +23,28 @@ h1 {
   flex-grow: 1;
 }
 .delete-task-btn {
-  height: 30px;
+  height: 35px;
 
   float: right;
   margin-right: 5px;
 }
 .done-task {
   text-decoration: line-through;
+  line-height: 35px;
 }
 .task-li {
   list-style: none;
-  height: 30px;
+  height: 35px;
+}
+.task-li label {
+  line-height: 35px;
+  font-size: 1.3em;
 }
 .task-list {
   padding: 0;
   width: 50%;
   margin: auto;
-  background-color: beige;
+  background-color: #c3c3c3;
 }
 .task-list li {
   font-size: 1.1em;
@@ -37,8 +52,8 @@ h1 {
 }
 .task-li label input {
   float: right;
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   padding: 0;
   margin: 0;
 }
