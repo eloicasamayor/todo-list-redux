@@ -55,7 +55,7 @@ function App() {
               value="delete"
               onClick={() => dispatch(deleteTodo(i))}
             >
-              DELETE ✕
+              🗑
             </button>
           </li>
         ))}

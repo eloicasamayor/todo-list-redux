@@ -11,6 +11,11 @@ button {
   background-color: darkcyan;
   margin: 0 1px;
 }
+input[type="checkbox"]:hover,
+button:hover,
+label:hover {
+  cursor: pointer;
+}
 .centered {
   margin: auto;
   width: 50%;
@@ -24,7 +29,9 @@ button {
 }
 .delete-task-btn {
   height: 35px;
-
+  width: 35px;
+  font-size: 1.5em;
+  line-height: 0.9;
   float: right;
   margin-right: 5px;
 }
@@ -50,10 +57,26 @@ button {
   font-size: 1.1em;
   padding: 0.3em;
 }
+.done-task input[type="checkbox"]:checked {
+  background-color: darkcyan;
+}
 .task-li label input {
   float: right;
   height: 35px;
   width: 35px;
   padding: 0;
   margin: 0;
+}
+
+@media (max-width: 600px) {
+  .centered,
+  .task-list {
+    width: 95%;
+  }
+  .task-li label {
+    font-size: 0.9em;
+  }
+  h1 {
+    margin: 5px 0;
+  }
 }
