@@ -16,6 +16,12 @@ export function toggleTodo(index) {
     payload: index,
   };
 }
+export function favTodo(index) {
+  return {
+    type: "FAV_TODO",
+    payload: index,
+  };
+}
 export function deleteAllTodos(index) {
   return {
     type: "DELETE_ALL_TODOS",
