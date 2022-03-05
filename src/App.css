@@ -1,5 +1,10 @@
+.App {
+  margin-top: 15px;
+}
 h1 {
+  line-height: 0.5em;
   text-align: center;
+  display: inline-block;
 }
 body {
   background-color: #e1e1e1;
@@ -24,7 +29,31 @@ label:hover {
   justify-content: space-between;
   margin-bottom: 20px;
 }
+input[type="text" i] {
+  padding: 3px 8px;
+}
+.centered.search.searching,
+.centered.search.searching input[type="text"] {
+  background-color: rgb(160, 218, 218);
+}
+.centered.search {
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.centered.search input {
+  border: none;
+}
+.centered.search input:focus {
+  /* removing the input focus blue box. Put this on the form if you like. */
+  outline: none;
+}
 .centered input[type="text"] {
+  font-size: 1.1em;
   flex-grow: 1;
 }
 .delete-task-btn {
@@ -42,6 +71,19 @@ label:hover {
 .task-li {
   list-style: none;
   height: 35px;
+}
+.btn-clear-search {
+  width: 29px;
+  height: 29px;
+  margin-top: 3px;
+  margin-right: 3px;
+  border-radius: 50%;
+}
+.btn-clear-search span {
+  display: block;
+  margin-top: -10px;
+  margin-left: -1px;
+  font-size: 2.2em;
 }
 .task-li label {
   line-height: 35px;
@@ -70,6 +112,8 @@ label:hover {
 
 @media (max-width: 600px) {
   .centered,
+  .centered.search,
+  .centered.search.searching,
   .task-list {
     width: 95%;
   }
